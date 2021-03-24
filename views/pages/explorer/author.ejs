@@ -1,0 +1,28 @@
+<%- include('../../partials/head.ejs',{title:'Explorer'}) %>
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div>
+          <img src="<%= author.profilePics %>" class="img-thumbnail img-fluid" alt="">
+      </div>
+      <div>
+         Name:<strong> <%= author.profile.name %> </strong>
+         Title:<strong> <%= author.profile.title %> </strong>
+         Bio:<strong> <%= author.profile.bio %> </strong>
+      </div>
+      <% if (author.profile.links.website) { %>
+        <span>
+          <a href="<%= author.profile.links.website %>" target="_blank">
+          links of social media (should be icons)
+        </a>            
+        </span>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include('../../partials/footer.ejs') %>
+
+</body>
+</html>

@@ -8,11 +8,13 @@ const {
     signupPostController,
     loginGetController,
     loginPosttController,
-    logoutController
+    logoutController,
+    changePasswordGetController,
+    changePasswordPostController
 } = require('../controllers/authController')
 
-
-
+const {isAuthenticated} = require('../middleware/authMiddleware')
+ 
 
 
 router.get('/signup',signupGetController)
@@ -23,5 +25,7 @@ router.post('/login',loginValidator,loginPosttController)
 
 router.get('/logout',logoutController)
 
+router.get('/change-password',isAuthenticated,changePasswordGetController)
+router.post('/change-password',isAuthenticated,changePasswordPostController)
 
 module.exports = router
