@@ -29,10 +29,13 @@ app.use((error, req, res, next) => {
   return res.render("pages/errorPages/500", { flashMessage: {} });
 });
 
+
+const MONGODB_URI = `mongodb+srv://${config.get('db-username')}:${config.get('db-password')}@blog-1.zkv8i.mongodb.net/BLOG-1?retryWrites=true&w=majority`
+
 const PORT = process.env.PORT || 8080;
 mongoose.set("useFindAndModify", false);
 mongoose
-  .connect(config.get("db-uri"), {
+  .connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
